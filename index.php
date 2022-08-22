@@ -26,12 +26,12 @@ include_once "base.php";
                                 <a href="?do=news">最新消息</a> |
                                 <a href="?do=look">購物流程</a> |
                                 <a href="?do=buycart">購物車</a> |
-                                
+
                                 <?php
                                 if (isset($_SESSION['mem'])) {
-                                        echo "<a href='#' onclick=logout('mem')>登出</a>";
+                                        echo "<a href='#' onclick=logout('mem')>登出</a> |";
                                 } else {
-                                        echo "<a href='?do=login'>會員登入</a>";
+                                        echo "<a href='?do=login'>會員登入</a> |";
                                 }
                                 ?>
                                 <?php
