@@ -90,6 +90,8 @@ class DB{
     }
 }
 
+
+
 function dd($array){
     echo "<pre>";
     echo print_r($array);
@@ -100,6 +102,7 @@ function to($url){
 }
 
 
+$Bot=new DB('bot');
 
 
 ?>
