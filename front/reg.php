@@ -50,6 +50,26 @@
         })
     }
 
-    function reg(){}
+    function reg(){
+        let user={
+            acc:$("#acc").val(),
+            pw:$("#pw").val(),
+            name:$("#name").val(),
+            addr:$("#addr").val(),
+            email:$("#email").val(),
+            tel:$("#tel").val()
+        }
+
+        $.post("./api/chk_acc.php",{table:'mem',acc:user.acc},(chk)=>{
+            console.log(chk)
+            if(parseInt(chk)===1 || acc==='admin'){
+                alert('此帳號已被使用，請選擇其他帳號')
+            }else{
+                $.post("./api/reg.php",user,()=>{
+                    location.href='index.php?do=login';
+                })
+            }
+        })
+    }
 
 </script>
