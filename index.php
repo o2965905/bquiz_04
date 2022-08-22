@@ -30,7 +30,7 @@
                 </div>
                 <div id="left" class="ct">
                         <div style="min-height:400px;">
-                        選單區
+                                選單區
                         </div>
                         <span>
                                 <div>進站總人數</div>
@@ -40,7 +40,13 @@
                 </div>
                 <div id="right">
                         <?php
-                        include "./front/main.php";
+                        $do = $_GET['do'] ?? 'main';
+                        $file = "./front/" . $do . ".php";
+                        if (file_exists($file)) {
+                                include $file;
+                        } else {
+                                include "./front/main.php";
+                        }
                         ?>
                 </div>
                 <div id="bottom" style="line-height:70px;background:url(icon/bot.png); color:#FFF;" class="ct">
