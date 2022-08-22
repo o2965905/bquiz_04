@@ -54,7 +54,7 @@ class DB{
             $sql="insert into $this->table (`".join("`,`",array_keys($array))."`) 
                                         values('".join("','",$array)."')";
         }
-        return $this->pdq->exec($sql);
+        return $this->pdo->exec($sql);
     }
     function del($arg){
         $sql="delete from $this->table where";
