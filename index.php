@@ -26,8 +26,22 @@ include_once "base.php";
                                 <a href="?do=news">最新消息</a> |
                                 <a href="?do=look">購物流程</a> |
                                 <a href="?do=buycart">購物車</a> |
-                                <a href="?do=login">會員登入</a> |
-                                <a href="?do=admin">管理登入</a>
+                                
+                                <?php
+                                if (isset($_SESSION['mem'])) {
+                                        echo "<a href='#' onclick=logout('mem')>登出</a>";
+                                } else {
+                                        echo "<a href='?do=login'>會員登入</a>";
+                                }
+                                ?>
+                                <?php
+                                if (isset($_SESSION['admin'])) {
+                                        echo "<a href='#' onclick=location.href='back.php'>返回管理</a>";
+                                } else {
+                                        echo "<a href='?do=admin'>管理登入</a>";
+                                }
+                                ?> |
+
                         </div>
                         <marquee behavior="" direction="">
                                 情人節特惠活動 &nbsp; 年終特賣會開跑了
@@ -55,7 +69,7 @@ include_once "base.php";
                         ?>
                 </div>
                 <div id="bottom" style="line-height:70px;background:url(icon/bot.png); color:#FFF;" class="ct">
-                        <?=$Bot->find(1)['bot'];?></div>
+                        <?= $Bot->find(1)['bot']; ?></div>
         </div>
 
 </body>
