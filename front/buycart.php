@@ -1,6 +1,6 @@
 <!-- 前台-購物車 -->
 <h2 class="ct">OOO的購物車</h2>
-<table>
+<table class="all">
     <tr class="tt ct">
         <th>編號</th>
         <th>商品名稱</th>
