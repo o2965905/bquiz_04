@@ -9,7 +9,7 @@
         <td class="tt ct">帳號</td>
         <td class="pp">
             <input type="text" name="acc" id="acc">
-            <button>檢測帳號</button>
+            <button onclick="chkAcc()">檢測帳號</button>
         </td>
     </tr>
     <tr>
@@ -30,6 +30,26 @@
     </tr>
 </table>
 <div class="ct">
-    <button>註冊</button>
+    <button onclick="reg()">註冊</button>
     <button onclick="$('#regform input').val('')">重置</button>
 </div>
+
+<script>
+
+    function chkAcc(){
+        let acc=$("#acc").val();
+        $.post("./api/chk_acc.php",{table:'mem',acc},(chk)=>{
+            console.log(chk)
+            if(parseInt(chk)===1 || acc==='admin'){
+                // 1 = 帳號存在
+                alert('此帳號已被使用，請選擇其他帳號')
+            }else{
+                // 0 = 帳號不存在
+                alert('此帳號可使用')
+            }
+        })
+    }
+
+    function reg(){}
+
+</script>
