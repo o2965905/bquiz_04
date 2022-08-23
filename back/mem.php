@@ -17,7 +17,7 @@
         <td><?=$row['regdate'];?></td>
         <td>
             <button>修改</button>
-            <button>刪除</button>
+            <button onclick="del('mem',<?=$row['id'];?>)">刪除</button>
         </td>
     </tr>
     <?php
