@@ -41,7 +41,7 @@ include_once "base.php";
 			if (file_exists($file)) {
 				include $file;
 			} else {
-				include "./front/admin.php";
+				include "./back/admin.php";
 			}
 			?>
 		</div>
