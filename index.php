@@ -49,18 +49,18 @@ include_once "base.php";
                 </div>
                 <div id="left" class="ct">
                         <div style="min-height:400px;">
-                                <a href="#">全部商品(8)</a>
+                                <a href="?type=0">全部商品(8)</a>
                         </div>
                         <?php
                         $bigs=$Type->all(['parent'=>0]);
                         foreach($bigs as $big){
                                 echo "<div class='ww'>";
-                                echo "<a>{$big['name']}</a>";
+                                echo "<a href='?type={$big['id']}'>{$big['name']}</a>";
                                 $mids=$Type->all(['parent'=>$big['id']]);
                                 if(!empty($mids)){
                                         foreach($mids as $mid){
                                                 echo "<div class='s'>";
-                                                echo " <a style='background:lightgreen;color:darkgreen'>{$mid['name']}</a>";
+                                                echo " <a href='?type={$mid['id']}' style='background:lightgreen;color:darkgreen'>{$mid['name']}</a>";
                                                 echo "</div>";
                                         }
                                 }
