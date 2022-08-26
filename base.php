@@ -106,5 +106,6 @@ $Bot=new DB('bot');
 $Mem=new DB('mem');
 $Type=new DB('type');
 $Goods=new DB('goods');
+$Order=new DB('ord');
 
 ?>
