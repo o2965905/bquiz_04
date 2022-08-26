@@ -49,18 +49,23 @@ include_once "base.php";
                 </div>
                 <div id="left" class="ct">
                         <div style="min-height:400px;">
-                                <a href="?type=0">全部商品(8)</a>
+                                <div class='ww'>
+                                        <?php $count = $Goods->math('count', 'id', ['sh' => 1]); ?>
+                                        <a href="?type=0">全部商品(<?= $count; ?>)</a>
+                                </div>
                         </div>
                         <?php
-                        $bigs=$Type->all(['parent'=>0]);
-                        foreach($bigs as $big){
+                        $bigs = $Type->all(['parent' => 0]);
+                        foreach ($bigs as $big) {
+                                $count = $Goods->math('count', 'id', ['sh' => 1, 'big' => $big['id']]);
                                 echo "<div class='ww'>";
-                                echo "<a href='?type={$big['id']}'>{$big['name']}</a>";
-                                $mids=$Type->all(['parent'=>$big['id']]);
-                                if(!empty($mids)){
-                                        foreach($mids as $mid){
+                                echo "<a href='?type={$big['id']}'>{$big['name']}($count)</a>";
+                                $mids = $Type->all(['parent' => $big['id']]);
+                                if (!empty($mids)) {
+                                        foreach ($mids as $mid) {
+                                                $count = $Goods->math('count', 'id', ['sh' => 1, 'mid' => $mid['id']]);
                                                 echo "<div class='s'>";
-                                                echo " <a href='?type={$mid['id']}' style='background:lightgreen;color:darkgreen'>{$mid['name']}</a>";
+                                                echo "<a href='?type={$mid['id']}' style='background:lightgreen;color:darkgreen'>{$mid['name']}($count)</a>";
                                                 echo "</div>";
                                         }
                                 }
