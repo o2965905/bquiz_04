@@ -51,6 +51,22 @@ include_once "base.php";
                         <div style="min-height:400px;">
                                 <a href="#">全部商品(8)</a>
                         </div>
+                        <?php
+                        $bigs=$Type->all(['parent'=>0]);
+                        foreach($bigs as $big){
+                                echo "<div class='ww'>";
+                                echo "<a>{$big['name']}</a>";
+                                $mids=$Type->all(['parent'=>$big['id']]);
+                                if(!empty($mids)){
+                                        foreach($mids as $mid){
+                                                echo "<div class='s'>";
+                                                echo " <a style='background:lightgreen;color:darkgreen'>{$mid['name']}</a>";
+                                                echo "</div>";
+                                        }
+                                }
+                                echo "</div>";
+                        }
+                        ?>
                         <span>
                                 <div>進站總人數</div>
                                 <div style="color:#f00; font-size:28px;">
