@@ -1,4 +1,13 @@
 <!-- 前台-購物車 -->
+<?php
+
+if(!isset($_SESSION['mem'])){
+    to("?do=login");
+}
+
+
+dd($_GET);
+?>
 <h2 class="ct">OOO的購物車</h2>
 <table class="all">
     <tr class="tt ct">
